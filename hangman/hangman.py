@@ -1,15 +1,15 @@
 '''
-    HANGMAN --- GAME
+    HANGMAN	GAME	
 '''
 
 from random_words import RandomWordGenerator
 
 class PlayHangmanGame:
 
-    # The given word to guess.
+    # The given word the player has to guess.
     HANGING_GIVEN_WORD = RandomWordGenerator()
 
-    # The maximum of chances you have.
+    # The maximum of chances the player has.
     HANGING_CHANCE_MAX_NUM = 6
 
     # Player name.
@@ -22,18 +22,15 @@ class PlayHangmanGame:
         # Condition so the game keeps going if is no win.
         self.isPlaying = True
 
-        # The chance count you begin with.
+        # The chance count the player begins with.
         self.chanceCount = 0
 
-        # Displays "_" as much as the word has.
+        # Displays "_", as many letters as the word has.
         self.showHiddenWord = ["_ " for char in self.HANGING_GIVEN_WORD]
 
     def PlayTheGame(self):
         """
-            Hangman game rules:
-            1.  The rules are very simple, you type a letter.
-            2.  If what your letter is correct than the blank lines fills with the letter you guessed.
-            3.  Otherwise, if the letter you introduced is not correct than you lose a life 
+			Play a turn of Hangman game.
             param: none
             return: none
         """
@@ -43,7 +40,7 @@ class PlayHangmanGame:
             player_input = input("Enter a letter/whole word here: ")
             self.player_input = player_input
 
-            # Gives a hint
+            # The player receives a hint.
             self.showHiddenWord[0] = self.HANGING_GIVEN_WORD_LIST[0]
 
             self.ReplaceWhitespaces()
@@ -63,9 +60,9 @@ class PlayHangmanGame:
 
     def CheckWinIfWholeWord(self):
         """
-            If you introduce the whole correct word, you win.
+            If the player introduce the whole correct word, he win.
             param: none
-            :return none:
+            return: none
         """
         if self.player_input == self.HANGING_GIVEN_WORD:
             self.showHiddenWord = self.player_input
@@ -75,7 +72,7 @@ class PlayHangmanGame:
 
     def ChancesCounter(self):
         """
-            HANGING_LEFT_CHANCES --> counts how many chances you remained with.
+            HANGING_LEFT_CHANCES --> counts how many chances the player remained with.
             param: none
         """
         if (self.player_input not in self.HANGING_GIVEN_WORD_LIST):
@@ -87,7 +84,7 @@ class PlayHangmanGame:
 
     def CheckIfGameOverByChances(self):
         """
-            If you ran out of chances, is game over.
+            If the player ran out of chances, is game over.
             param: none
         """
         self.HangmanGraphicDisplay()
@@ -109,7 +106,7 @@ class PlayHangmanGame:
 
     def HangmanGraphicDisplay(self):
         """
-            Displays the hanged man if you guess incorrectly a letter.
+            Displays the hanged man if the player didn't correctly guess a letter.
             param: None
         """
         if self.chanceCount == 0:
@@ -172,7 +169,7 @@ class PlayHangmanGame:
 
     def TakeLowerOrUpperLetters(self):
         """
-            Takes your input both as lower case and upper case.
+            Takes the player input both as lower case and upper case.
             param: none
         """
         for i in range(len(self.HANGING_GIVEN_WORD_LIST)):
