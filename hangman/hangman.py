@@ -46,7 +46,11 @@ class PlayHangmanGame:
             self.ReplaceWhitespaces()
             self.ChancesCounter()
             self.CheckIfGameOverByChances()
+<<<<<<< HEAD
 	        self.CheckWinIfWholeWord()
+=======
+			 self.CheckWinIfWholeWord()
+>>>>>>> parent of c3f75b8... Update hangman.py
             self.CheckWinLetterByLetter()
 
     def ReplaceWhitespaces(self):
