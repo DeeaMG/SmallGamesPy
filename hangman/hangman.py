@@ -46,7 +46,7 @@ class PlayHangmanGame:
             self.ReplaceWhitespaces()
             self.ChancesCounter()
             self.CheckIfGameOverByChances()
-			 self.CheckWinIfWholeWord()
+			self.CheckWinIfWholeWord()
             self.CheckWinLetterByLetter()
 
     def ReplaceWhitespaces(self):
