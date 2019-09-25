@@ -44,9 +44,9 @@ class PlayHangmanGame:
             self.showHiddenWord[0] = self.HANGING_GIVEN_WORD_LIST[0]
 
             self.ReplaceWhitespaces()
-            self.CheckWinIfWholeWord()
             self.ChancesCounter()
             self.CheckIfGameOverByChances()
+			 self.CheckWinIfWholeWord()
             self.CheckWinLetterByLetter()
 
     def ReplaceWhitespaces(self):
