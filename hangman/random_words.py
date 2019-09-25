@@ -1,6 +1,7 @@
 import random
 
-WordList = [
+# List of words that can be randomly chosen.
+randomWordList = [
 	'acres',
 	'adult',
 	'advice',
@@ -8,12 +9,13 @@ WordList = [
 	'attempt',
 	'August',
 	'Autumn',
+	'anaconda',
 	'border',
 	'breeze',
 	'brick',
 	'calm',
 	'canal',
-	'Casey',
+	'Cassey',
 	'cast',
 	'chose',
 	'claws',
@@ -339,10 +341,10 @@ WordList = [
 	'zilch',
 	'zipper',
 	'zodiac',
-	'zombie',
-	'anaconda'
+	'zombie'
 ]
 
+# Sets a random word for the Hangman game.
 def RandomWordGenerator():
-    random_word = random.choice(WordList)
+    random_word = random.choice(randomWordList)
     return random_word
