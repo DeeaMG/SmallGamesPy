@@ -100,7 +100,7 @@ class CowsAndBullsGame:
 
     def CheckIfMAxAttempts(self):
         if self.number_of_attempts == self.max_number_of_attempts:
-            print("You ran out of attempts! You lost the game! 🙁")
+            print("You ran out of attempts! You lost the game! 🙁\nThe number was {}.".format(self.SearchedNumber))
             self.isPlaying = False
 
 game = CowsAndBullsGame()
