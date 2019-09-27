@@ -1,6 +1,6 @@
 # Cows and Bulls
 
-The rules of the game are very simple:
+Cows and Bulls rules:
   - Randomly generate a 4 digit number. The player has to guess the 4 digit number.
   - For every digit the player guess correctly in the correct place they have a bull.
   -  For every digit the player guess correctly in the wrong place they have a cow.
