@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2594ee5f-144f-4267-963f-03d5a5182c39" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hangman/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/hangman/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="2594ee5f-144f-4267-963f-03d5a5182c39" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +71,7 @@
       <workItem from="1569453111044" duration="58000" />
       <workItem from="1569453211988" duration="56000" />
       <workItem from="1569453454479" duration="246000" />
+      <workItem from="1569455994275" duration="18000" />
     </task>
     <servers />
   </component>
