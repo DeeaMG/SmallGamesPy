@@ -22,7 +22,7 @@ class CowsAndBullsGame:
         # The number of attempts of guessing.
         self.number_of_attempts = 1
 
-        #
+        # The maximum number of attempts the player has.
         self.max_number_of_attempts = 10
 
     def PlayGame(self):
@@ -65,9 +65,9 @@ class CowsAndBullsGame:
         if player_input_number not in self.SearchedNumber:
             return True
         else:
-            # Pos result the position of the number from list.
+            # pos --> position of the player input in the sought number.
             pos = self.SearchedNumber.index(player_input_number)
-            # Check if resulted pos (-1 if doesn't exists) is equal with given pos.
+            # Check if resulted pos is equal with player_input_index number.
             return pos == player_input_index
 
     def GetCows(self):
@@ -77,9 +77,6 @@ class CowsAndBullsGame:
         """
 
         for index, number in enumerate(self.player_input):
-            # 1234 < SearchedNumber
-            # 1243 < player_input
-
             result = self.ScanIfCows(number, index)
             if not result:
                 self.cows_count += 1
