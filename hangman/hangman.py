@@ -45,8 +45,8 @@ class PlayHangmanGame:
 
             self.ReplaceWhitespaces()
             self.ChancesCounter()
-	    self.CheckIfGameOverByChances()
-	    self.CheckWinIfWholeWord()
+            self.CheckIfGameOverByChances()
+            self.CheckWinIfWholeWord()
             self.CheckWinLetterByLetter()
 
     def ReplaceWhitespaces(self):
@@ -75,9 +75,9 @@ class PlayHangmanGame:
             HANGING_LEFT_CHANCES --> counts how many chances the player remained with.
             param: none
         """
-        if (self.player_input not in self.HANGING_GIVEN_WORD_LIST):
-            if (self.player_input.upper() not in self.HANGING_GIVEN_WORD_LIST):
-                if (self.player_input != self.HANGING_GIVEN_WORD):
+        if self.player_input not in self.HANGING_GIVEN_WORD_LIST:
+            if self.player_input.upper() not in self.HANGING_GIVEN_WORD_LIST:
+                if self.player_input != self.HANGING_GIVEN_WORD:
                     self.chanceCount += 1
                     HANGING_LEFT_CHANCES = self.HANGING_CHANCE_MAX_NUM - self.chanceCount
                     print("You have {} chances left.You lost {} chance/s already.".format(HANGING_LEFT_CHANCES, self.chanceCount))
@@ -91,7 +91,7 @@ class PlayHangmanGame:
 
         if self.chanceCount == self.HANGING_CHANCE_MAX_NUM:
             self.isPlaying = False
-            print ("{} ran out of chances.\nGame over...\nThe word was {}".format(self.HANGING_PLAYER_NAME,self.HANGING_GIVEN_WORD.upper()))
+            print("{} ran out of chances.\nGame over...\nThe word was {}".format(self.HANGING_PLAYER_NAME,self.HANGING_GIVEN_WORD.upper()))
 
     def CheckWinLetterByLetter(self):
         """
