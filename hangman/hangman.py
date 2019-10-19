@@ -1,15 +1,15 @@
 '''
-    HANGMAN	GAME	
+    HANGMAN --- GAME
 '''
 
-from random_words import RandomWordGenerator
+from RandomWords import RandomWordGenerator as generator
+
 
 class PlayHangmanGame:
+    # The given word to guess.
+    HANGING_GIVEN_WORD = generator()
 
-    # The given word the player has to guess.
-    HANGING_GIVEN_WORD = RandomWordGenerator()
-
-    # The maximum of chances the player has.
+    # The maximum of chances you have.
     HANGING_CHANCE_MAX_NUM = 6
 
     # Player name.
@@ -22,17 +22,23 @@ class PlayHangmanGame:
         # Condition so the game keeps going if is no win.
         self.isPlaying = True
 
-        # The chance count the player begins with.
+        # The chance count you begin with.
         self.chanceCount = 0
 
-        # Displays "_", as many letters as the word has.
+        # Displays "_" as much as the word has.
         self.showHiddenWord = ["_ " for char in self.HANGING_GIVEN_WORD]
 
+		# Displays the showHiddenWord after name request.
+        tmpShowHiddenWord = [self.HANGING_GIVEN_WORD_LIST[0], ] + self.showHiddenWord[1:]
+        for char in tmpShowHiddenWord:
+            print(char, end=' ')
+        print('\n')
+		
     def PlayTheGame(self):
         """
-			Play a turn of Hangman game.
+            Play a turn of Hangman game.
             param: none
-            return: none
+            :return none:
         """
         while self.isPlaying:
 
@@ -40,8 +46,8 @@ class PlayHangmanGame:
             player_input = input("Enter a letter/whole word here: ")
             self.player_input = player_input
 
-            # The player receives a hint.
-            self.showHiddenWord[0] = self.HANGING_GIVEN_WORD_LIST[0]
+            # Gives a hint
+            self.showHiddenWord[ 0 ] = self.HANGING_GIVEN_WORD_LIST[ 0 ]
 
             self.ReplaceWhitespaces()
             self.ChancesCounter()
@@ -56,13 +62,13 @@ class PlayHangmanGame:
         """
         for index, val in enumerate(self.HANGING_GIVEN_WORD_LIST):
             if " " == val:
-                self.showHiddenWord[index] = " "
+                self.showHiddenWord[ index ] = " "
 
     def CheckWinIfWholeWord(self):
         """
-            If the player introduce the whole correct word, he win.
+            If you introduce the whole correct word, you win.
             param: none
-            return: none
+            :return none:
         """
         if self.player_input == self.HANGING_GIVEN_WORD:
             self.showHiddenWord = self.player_input
@@ -72,32 +78,34 @@ class PlayHangmanGame:
 
     def ChancesCounter(self):
         """
-            HANGING_LEFT_CHANCES --> counts how many chances the player remained with.
+            HANGING_LEFT_CHANCES --> counts how many chances you remained with.
             param: none
         """
-        if self.player_input not in self.HANGING_GIVEN_WORD_LIST:
-            if self.player_input.upper() not in self.HANGING_GIVEN_WORD_LIST:
-                if self.player_input != self.HANGING_GIVEN_WORD:
+        if (self.player_input not in self.HANGING_GIVEN_WORD_LIST):
+            if (self.player_input.upper() not in self.HANGING_GIVEN_WORD_LIST):
+                if (self.player_input != self.HANGING_GIVEN_WORD):
                     self.chanceCount += 1
                     HANGING_LEFT_CHANCES = self.HANGING_CHANCE_MAX_NUM - self.chanceCount
-                    print("You have {} chances left.You lost {} chance/s already.".format(HANGING_LEFT_CHANCES, self.chanceCount))
+                    print("You have {} chances left.You lost {} chance/s already.".format(HANGING_LEFT_CHANCES,
+                                                                                          self.chanceCount))
 
     def CheckIfGameOverByChances(self):
         """
-            If the player ran out of chances, is game over.
+            If you ran out of chances, is game over.
             param: none
         """
         self.HangmanGraphicDisplay()
 
         if self.chanceCount == self.HANGING_CHANCE_MAX_NUM:
             self.isPlaying = False
-            print("{} ran out of chances.\nGame over...\nThe word was {}".format(self.HANGING_PLAYER_NAME,self.HANGING_GIVEN_WORD.upper()))
+            print("{} ran out of chances.\nGame over...\nThe word was {}".format(self.HANGING_PLAYER_NAME,
+                                                                                 self.HANGING_GIVEN_WORD.upper()))
 
     def CheckWinLetterByLetter(self):
         """
             If the word is introduced letter by letter, verifies if it's a win.
             param: none
-            return: none
+            :return none:
         """
         if self.showHiddenWord == self.HANGING_GIVEN_WORD_LIST:
             self.isPlaying = False
@@ -106,7 +114,7 @@ class PlayHangmanGame:
 
     def HangmanGraphicDisplay(self):
         """
-            Displays the hanged man if the player didn't correctly guess a letter.
+            Displays the hanged man if you guess incorrectly a letter.
             param: None
         """
         if self.chanceCount == 0:
@@ -169,7 +177,7 @@ class PlayHangmanGame:
 
     def TakeLowerOrUpperLetters(self):
         """
-            Takes the player input both as lower case and upper case.
+            Takes your input both as lower case and upper case.
             param: none
         """
         for i in range(len(self.HANGING_GIVEN_WORD_LIST)):
@@ -179,6 +187,7 @@ class PlayHangmanGame:
                 self.showHiddenWord[i] = self.player_input.upper()
             print(self.showHiddenWord[i], end=' ')
         print('\n')
+
 
 Play = PlayHangmanGame()
 Play.PlayTheGame()
